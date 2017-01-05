@@ -1,0 +1,59 @@
+#freegeoip, ip2zip and clean are functions that should be loaded in. zip2pop is a dataset that maps zips to population densiy, so load that in as well
+script.dir <- dirname(sys.frame(1)$ofile)
+data_url <- paste(script.dir,"/zip2popdensity_area.csv", sep="")
+zip2pop <- read.csv(data_url)
+
+freegeoip <- function(ip, format = ifelse(length(ip)==1,'list','dataframe'))
+{
+  if (1 == length(ip))
+  {
+    # a single IP address
+    require(rjson)
+    url <- paste(c("http://freegeoip.net/json/", ip), collapse='')
+    ret <- fromJSON(readLines(url, warn=FALSE))
+    if (format == 'dataframe')
+      ret <- data.frame(t(unlist(ret)))
+    return(ret)
+  } else {
+    ret <- data.frame()
+    for (i in 1:length(ip))
+    {
+      r <- freegeoip(ip[i], format="dataframe")
+      ret <- rbind(ret, r)
+    }
+    return(ret)
+  }
+}  
+
+ip2zip <- function(x){
+  return(freegeoip(toString(x))$zip_code)
+}
+
+clean <- function(x){
+  if (substr(x,1,1) == "0"){
+    return(substr(x,2,5))
+  } else{
+    return(x)
+  }
+}
+
+generate_cols <- function(raw_ip){
+  zip_from_ip <- c()
+  
+  for (ip in raw_ip){
+    zip_from_ip <- c(zip_from_ip,ip2zip(ip))
+  }
+  
+  density_from_zip <- c()
+  for (i in 1:length(zip_from_ip)){
+    l <- zip2pop[which(zip2pop$Zip.ZCTA == clean(zip_from_ip[i])),]$Density.Per.Sq.Mile
+    if (length(l) > 0){
+      density_from_zip[i] <- l
+    } else{
+      density_from_zip[i] <- 0
+    }
+  }
+  
+  out <- data.frame(data,zip_from_ip,density_from_zip)
+  return(out)
+}
