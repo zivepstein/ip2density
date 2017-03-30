@@ -6,7 +6,11 @@ Simply clone this repository to your local machine with `git clone https://githu
 
 <h1>Usage</h1>
 This script has several functions of use.
-<b>generate_cols</b> takes as input a vector of IP addresses as strings and returns a data frame with the original IP's, the corresponding zip codes and the density of that zipcode. 
+<b>generate_cols</b> takes as input a vector of IP addresses as strings and returns a data frame with the original IP's, the corresponding zip codes, the state of that zip code, and the population density of that zipcode. 
+
+Example:
+`generate_cols(c("134.173.194.190"))` returns `           raw_ip zip_from_ip state_from_ip density_from_zip
+1 134.173.194.190       91711            CA         2378.589`
 
 <b>ip2zip</b> is a helper function that takes a IP address as a string and returns the corresponding zip code. 
 
