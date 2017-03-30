@@ -29,6 +29,10 @@ ip2zip <- function(x){
   return(freegeoip(toString(x))$zip_code)
 }
 
+ip2state <- function(x){
+  return(freegeoip(toString(x))$region_code)
+}
+
 clean <- function(x){
   if (substr(x,1,1) == "0"){
     return(substr(x,2,5))
@@ -39,9 +43,10 @@ clean <- function(x){
 
 generate_cols <- function(raw_ip){
   zip_from_ip <- c()
-  
+  state_from_ip <- c()
   for (ip in raw_ip){
     zip_from_ip <- c(zip_from_ip,ip2zip(ip))
+    state_from_ip <- c(state_from_ip,ip2state(ip))
   }
   
   density_from_zip <- c()
@@ -54,6 +59,6 @@ generate_cols <- function(raw_ip){
     }
   }
   
-  out <- data.frame(data,zip_from_ip,density_from_zip)
+  out <- data.frame(raw_ip,zip_from_ip,state_from_ip,density_from_zip)
   return(out)
 }
