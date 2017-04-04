@@ -32,3 +32,7 @@ Example:
 <b>ip2zip</b> is a helper function that takes a IP address as a string and returns the corresponding zip code. 
 
 <b>zip2pop</b> is a data set used to map zip codes to population density. This dataset has a column for over 33k zipcodes (zip2pop$Zip.ZCTA) and a column for the corresponding population density (zip2pop$Density.Per.Sq.Mile).
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
