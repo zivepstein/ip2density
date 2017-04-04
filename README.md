@@ -6,11 +6,27 @@ Simply clone this repository to your local machine with `git clone https://githu
 
 <h1>Usage</h1>
 This script has several functions of use.
-<b>generate_cols</b> takes as input a vector of IP addresses as strings and returns a data frame with the original IP's, the corresponding zip codes, the state of that zip code, and the population density of that zipcode. 
+<b>generate_cols</b> takes as input a vector of IP addresses as strings and returns a data frame fields corresponding to the original IP's. The fields included are 
+<ol>
+<li>the original IP </li>
+<li>the country code</li>
+<li>the country</li>
+<li>the region code (i.e. US State)</li>
+<li>the region name </li>
+<li>the city</li>
+<li>the corresponding zip code</li>
+<li>the time zone</li>
+<li>the latitude</li>
+<li>the longitude</li>
+<li>the metro code</li>
+<li>and the population density of that zipcode </li>
+</ol>, the state of that zip code,
 
 Example:
-`generate_cols(c("134.173.194.190"))` returns `           raw_ip zip_from_ip state_from_ip density_from_zip
-1 134.173.194.190       91711            CA         2378.589`
+`generate_cols(c("134.173.194.190"))` returns 
+|ip |country_code | country_name |region_code |region_name |  city | zip_code | time_zone |latitude |longitude |metro_code | density_from_zip| 
+|68.65.169.6     | US | United States | CA  | California | Stanford | 94305 | America/Los_Angeles | 37.4178 | -122.172   | 807  | 2703.198 |
+|134.173.194.190 | US | United States | CA  | California | Claremont| 91711 | America/Los_Angeles | 34.1223 | -117.7143  | 803         | 2378.589 |
 
 <b>ip2zip</b> is a helper function that takes a IP address as a string and returns the corresponding zip code. 
 
