@@ -24,10 +24,10 @@ This script has several functions of use.
 
 Example:
 `generate_cols(c("134.173.194.190"))` returns 
-|ip |country_code | country_name |region_code |region_name |  city | zip_code | time_zone |latitude |longitude |metro_code | density_from_zip| 
-|--------------- |:--:| -------------:|---- |:----------:| --------:|------ |:-------------------:| -------:|----------- |----| ---------|
-|68.65.169.6     | US | United States | CA  | California | Stanford | 94305 | America/Los_Angeles | 37.4178 | -122.172   | 807  | 2703.198 |
-|134.173.194.190 | US | United States | CA  | California | Claremont| 91711 | America/Los_Angeles | 34.1223 | -117.7143  | 803         | 2378.589 |
+| ip |country_code | country_name | region_code | region_name |  city | zip_code | time_zone | latitude | longitude | metro_code | density_from_zip | 
+|----------------|----|---------------|-----|------------|----------|-------|---------------------|---------|------------|----|----------|
+| 68.65.169.6     | US | United States | CA  | California | Stanford | 94305 | America/Los_Angeles | 37.4178 | -122.172   | 807  | 2703.198 |
+| 134.173.194.190 | US | United States | CA  | California | Claremont| 91711 | America/Los_Angeles | 34.1223 | -117.7143  | 803         | 2378.589 |
 
 <b>ip2zip</b> is a helper function that takes a IP address as a string and returns the corresponding zip code. 
 
