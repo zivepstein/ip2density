@@ -23,7 +23,7 @@ This script has several functions of use.
 </ol>
 
 Example:
-`generate_cols(c("134.173.194.190"))` returns 
+`generate_cols(c("134.173.194.190", "68.65.169.6"))` returns 
 
 | ip |country_code | country_name | region_code | region_name |  city | zip_code | time_zone | latitude | longitude | metro_code | density_from_zip | 
 |----------------|----|---------------|-----|------------|----------|-------|---------------------|---------|------------|----|----------|
