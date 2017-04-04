@@ -14,13 +14,13 @@ This script has several functions of use.
 <li>the region code (i.e. US State)</li>
 <li>the region name </li>
 <li>the city</li>
-<li>the corresponding zip code</li>
+<li> <b>the corresponding zip code</b></li>
 <li>the time zone</li>
 <li>the latitude</li>
 <li>the longitude</li>
 <li>the metro code</li>
-<li>and the population density of that zipcode </li>
-</ol>, the state of that zip code,
+<li>and <b>the population density </b>of that zipcode. </li>
+</ol>
 
 Example:
 `generate_cols(c("134.173.194.190"))` returns 
