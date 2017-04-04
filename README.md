@@ -24,6 +24,7 @@ This script has several functions of use.
 
 Example:
 `generate_cols(c("134.173.194.190"))` returns 
+
 | ip |country_code | country_name | region_code | region_name |  city | zip_code | time_zone | latitude | longitude | metro_code | density_from_zip | 
 |----------------|----|---------------|-----|------------|----------|-------|---------------------|---------|------------|----|----------|
 | 68.65.169.6     | US | United States | CA  | California | Stanford | 94305 | America/Los_Angeles | 37.4178 | -122.172   | 807  | 2703.198 |
@@ -32,6 +33,7 @@ Example:
 <b>ip2zip</b> is a helper function that takes a IP address as a string and returns the corresponding zip code. 
 
 <b>zip2pop</b> is a data set used to map zip codes to population density. This dataset has a column for over 33k zipcodes (zip2pop$Zip.ZCTA) and a column for the corresponding population density (zip2pop$Density.Per.Sq.Mile).
+
 | First Header  | Second Header |
 | ------------- | ------------- |
 | Content Cell  | Content Cell  |
