@@ -3,9 +3,8 @@ ip2density is an R-script designed to generate the population density correspond
 
 <h1>Installation</h1>
 Simply clone this repository to your local machine with 
-```git clone https://github.com/zivepstein/ip2density```
-then in an R or RStudio console, run
-```source("/path/to/ip2density/ip2zip2density.R")``` to import the functions and datasets to your working environment.
+<code>git clone https://github.com/zivepstein/ip2density</code>
+then in an R or RStudio console, run <code>source("/path/to/ip2density/ip2zip2density.R")</code> to import the functions and datasets to your working environment.
 
 <h1>Usage</h1>
 This script has several functions of use.
