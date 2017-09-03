@@ -45,11 +45,12 @@ clean <- function(x){
   }
 }
 
-generate_cols <- function(raw_ip){
+generate_cols <- function(input, from = "ip"){
+  if (from == "ip"){
   zip_from_ip <- c()
   state_from_ip <- c()
   vec_from_ip <- c()
-  for (ip in raw_ip){
+  for (ip in input){
     zip_from_ip <- c(zip_from_ip,ip2zip(ip))
     state_from_ip <- c(state_from_ip,ip2state(ip))
     vec_from_ip <- rbind(vec_from_ip, ip2vec(ip))
@@ -67,4 +68,22 @@ generate_cols <- function(raw_ip){
   
   out <- data.frame(vec_from_ip)
   return(out)
+  } else if (from == "zip"){
+    density_from_zip <- c()
+    for (i in 1:length(input)){
+      l <- zip2pop[which(zip2pop$Zip.ZCTA == clean(input[i])),]$Density.Per.Sq.Mile
+      if (length(l) > 0){
+        density_from_zip[i] <- l
+      } else{
+        density_from_zip[i] <- 0
+      }
+    }
+  return(density_from_zip)
+  } else{
+      return("from parameter must be 'zip' or 'ip'")
+    }
 }
+
+#example calls
+generate_cols(c("68.65.169.6","134.173.194.190"))
+generate_cols(c("02141","80304"), from = "zip")
