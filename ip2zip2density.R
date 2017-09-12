@@ -51,6 +51,11 @@ generate_cols <- function(input, from = "ip"){
   state_from_ip <- c()
   vec_from_ip <- c()
   for (ip in input){
+    if(ip == "NA"){
+      zip_from_ip <- c(zip_from_ip,00000)
+      state_from_ip <- c(state_from_ip,"NA")
+      vec_from_ip <- rbind(vec_from_ip, ip2vec("68.65.169.6"))
+    }
     zip_from_ip <- c(zip_from_ip,ip2zip(ip))
     state_from_ip <- c(state_from_ip,ip2state(ip))
     vec_from_ip <- rbind(vec_from_ip, ip2vec(ip))
@@ -66,7 +71,7 @@ generate_cols <- function(input, from = "ip"){
     }
   }
   
-  out <- data.frame(vec_from_ip)
+  out <- data.frame(cbind(density_from_zip,vec_from_ip))
   return(out)
   } else if (from == "zip"){
     density_from_zip <- c()
