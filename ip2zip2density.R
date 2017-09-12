@@ -51,7 +51,7 @@ generate_cols <- function(input, from = "ip"){
   state_from_ip <- c()
   vec_from_ip <- c()
   for (ip in input){
-    if(ip == "NA"){
+    if(ip == "NA" || is.na(ip)){
       zip_from_ip <- c(zip_from_ip,00000)
       state_from_ip <- c(state_from_ip,"NA")
       vec_from_ip <- rbind(vec_from_ip, ip2vec("68.65.169.6"))
