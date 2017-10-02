@@ -38,6 +38,9 @@ ip2vec <- function(x){
 }
 
 clean <- function(x){
+  if (is.na(x)){
+    return("NA")
+  }
   if (substr(x,1,1) == "0"){
     return(substr(x,2,5))
   } else{
